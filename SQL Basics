@@ -1,0 +1,70 @@
+SQL:
+SQL Statements-      DDL-create, alter, drop
+				DML-insert,update,delete
+				DCL-grant, revoke
+				DQL-select
+				TCL-commit, rollback, savepoint
+
+SQL Data Types-
+				Integer, varchar, char, Decimal(,), Date, Time, Datetime, Boolean/BIT, Text
+
+Normlization(APT)-   1NF- Aromic value
+			          2NF- Partial Dependency
+				 3NF- Remove Transitive Dependencies
+
+SQL Keys- Primary Key
+		 Forigen Key
+		 Unique Key
+		 Candidate key
+		 
+			
+SQL Constratints- 	Primary Key 
+				Unique 
+				Foreign key
+				Not Null
+				Check
+
+Stored Procedure- Precompiled Code that make changes in table
+
+Functions- retrive single result value it does not modify data
+
+Index- to search fast -Clustered index and non clustered index
+
+Trigger- after trigger and insteadof or before trigger
+
+Views- virtual table from given table
+
+Transactions- transaction is nothing but one process where it will complete it or rollback it. 
+
+Joins- combination of multiple tables -Inner join, left outer join, right outer join, full outer join, self join etc
+
+Cursor- cursor is memory area/regoin which is used  to process resultset as on row at a time
+
+Union- Union and Union All used to combine the results of two or more select queries into single result set. Union avoid duplicate values Union All allows duplicate values.
+
+Aggregate functions- SUM, MAX, MIN, AVG etc
+
+SQL Clauses- 	Group by- to group resultset
+			Having- Used with aggregate functions
+			Order By- to order ASC or DSEC
+			Where- to filter out data 
+
+SubQuery- subquery is query that written inside another query. Correlated Query and Non Correlated Query.
+
+SQL Operators- 	Like- to get value like we will use wildcards with that. Wildcards-- % it used to get zero or more character, _ used to get single character.
+				IN- In operator used to specify multiple values in where 
+				Between- Between Used to get values between two values
+
+Alias- is name that we give to display as column name.
+
+TempTable- #TblName- local temptable
+		   ##tblname- global temptable
+
+Magic Tables- this are table used with sql triggers so there are two types insert and delete magic table.
+					
+
+
+
+
+
+
