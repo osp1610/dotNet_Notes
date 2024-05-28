@@ -1,0 +1,46 @@
+***Sub Query***
+-SQL sub query is query which is nested inside another sql query.
+-SQL subquery help us to perform complex data retrival and manipulation tasks.
+-Subqueries are used to retrive data that will be used as a condition for another query. so writing query in breakdown manner that helps us to divide and understand complex task into smaller parts.
+-SQL sub queries can be placed in various parts of sql statements like select, from, where etc.
+-So we write sub queries in parnthesis with followed by some keywords select, from and where etc. it's like we'll write subquries for condition of parent query.
+-Types of Subqueries.
+--Scalar SubQuery-it returns the single where mostly used to check conditions.
+--Row SubQuery- It returns multiple rows of Data, which we can use for many ways like to filtering or joining.
+--Table SubQuery-It is used returns a result set it can be treated as temporary table.
+
+Use Cases-
+-filtering data based on conditions from another table.
+-performing calculations using aggregated data.
+-it used to check existence of related data using exists or not exists clause.
+
+-Example:
+-Scalar subquery:
+ SELECT FirstName, LastName
+ FROM employees
+ WHERE  City= (SELECT City FROM Company WHERE City='Pune');
+
+-Row subquery:
+ SELECT FirstName, LastName
+FROM employees
+WHERE EmpID IN (SELECT OfficeID FROM Company WHERE city = 'Mumbai');
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
