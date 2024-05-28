@@ -1,0 +1,109 @@
+Exceptions are a classes in c#
+
+There are two types of errors
+CompileTime-Due to syntax mistakes
+This error is not dangerous
+
+Runtime-Due to wrong logic,Due to wrong 
+parameter
+
+if Runtime error occurs the next line of
+codes are not executed
+
+Under exception class we have system exception
+and application exception
+
+Under System exception we have
+Indexout of bound
+Divide by zero
+Invalid type conversion-Format exception
+
+
+What is exception Handling
+To stop abnormal termination
+
+Advantages:
+1.Due to abnormal termination program stops
+to overcoeme this we need to use exception handling
+2.Showing user friendly error
+3.And help to perform corrective actions
+
+How to use this?
+By putting our code under try-catcg block
+
+try
+{
+-stmt which will cause runtime error
+-stmts which does not require execution
+}
+catch(<Exception Class>)
+{
+-stmts which should execute only when 
+a runtime error occur.
+} 
+
+
+
+it is reccomended to first use indivitual
+error catch blck the use 
+catch(exception ex){
+}
+
+If there is no error occurs in try block
+catch block not gets executed
+
+Finally block-If exception is there it will
+get execute and if exception is not there
+then also it will occur.
+
+when control comes into try it will
+execute finally at any cost
+
+In finally block we are basically write
+closing file,closing db connection etc.
+
+we can write try catch and finally in 3 combinations
+try-catch
+try-catch-finally
+try-finally can be used
+
+Finally block also excute when abnormal
+termination occurs
+
+So till now we have got about System Exceptions
+
+So system exceptions throws by CLR
+
+Application Exceptions:
+Application developer create instance and
+throw the exception
+
+application exception is a class which microsoft
+introduced for throwing exception by 
+developer
+
+ApplicationException ex = new ApplicationException("<Error Message>");
+throw ex;
+
+or
+
+throw new ApplicationException(Pass error message as a parameter);
+
+Defining our own exception class
+public class DivideByOddNoException :ApplicationException
+{
+	public override string Message()
+	{
+		get
+		{
+			return "Attempted to divide by odd";
+		}
+	}
+}
+
+
+Now Calling it in main method
+
+throw DivideByOddNoException();
+
+ 
