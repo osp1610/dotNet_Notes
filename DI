@@ -1,0 +1,65 @@
+Using builder.Services in Program.cs for Dependency Injection 
+
+In ASP.NET Core applications, the Program.cs file plays a crucial role in bootstrapping the application and configuring its services. The builder.Services property of the WebApplicationBuilder object provides a central point for registering services that your application will use. 
+
+What is builder.Services? 
+
+builder.Services is an instance of the IServiceCollection interface. 
+
+This interface represents a collection of services available to your application throughout its lifetime. 
+
+By registering services here, you make them accessible to all parts of your application through dependency injection. 
+
+How do we use it? 
+
+There are various methods available on IServiceCollection for registering different types of services: 
+
+builder.Services.AddSingleton<TService>(): Registers a single instance 							         of TService throughout the 							         application lifetime. 
+
+ 
+
+builder.Services.AddScoped<TService>(): Registers a new instance 
+
+  								of TService for each HTTP 
+
+  	  							request (in web applications) or 	                              					   scope.	 
+
+ 
+
+builder.Services.AddTransient<TService>(): Registers a new instance 							         of TService for each time it's 							         injected. 
+
+ 
+
+scope refers to the lifetime of an object within your application. This determines how long an object lives, where it's accessible, and how its changes are managed. Understanding different scopes is crucial for designing efficient and maintainable code. 
+
+Here's an overview of common scopes in .NET and how to implement them: 
+
+1. Transient Scope: 
+
+Lifetime: An instance is created each time it's requested via dependency injection. 
+
+Use cases: Short-lived tasks like database connections, utilities, or services with no state dependence. 
+
+Implementation: Register using services.AddTransient<TService>(). 
+
+2. Scoped Scope: 
+
+Lifetime: An instance is created per request or scope (like a web request in ASP.NET Core). 
+
+Use cases: Services that need to maintain state within a limited context, like shopping carts or user-specific data. 
+
+Implementation: Register using services.AddScoped<TService>(). 
+
+3. Singleton Scope: 
+
+Lifetime: A single instance exists throughout the application lifetime. 
+
+Use cases: Global configurations, logging services, or services with expensive initialization costs. 
+
+Implementation: Register using services.AddSingleton<TService>(). 
+
+Additional Scopes: 
+
+Custom Scopes: You can create custom scopes using dependency injection containers like Autofac. 
+
+Scoped vs. Transient in ASP.NET Core: Scoped services are often preferred for middleware and controllers as they manage state within a request.
