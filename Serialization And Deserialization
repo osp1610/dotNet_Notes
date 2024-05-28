@@ -1,0 +1,35 @@
+Serialization:It is a mechanism used to
+maintain the state of the data during 
+transfer of information from source(mobile,laptop)
+to destination(File,db,memory)
+
+Converting object to stream of data which
+can be transferable over network.This data
+will be back to object once reached the
+specific destination.
+
+In industry 4-5 serialization techniques
+-->Compatible to around world.
+
+Deserialization:Saving data drom stream 
+to object
+
+Note:Only serialized data can be deserialized
+
+Serialization techniques:
+1.Binary Serialization--Supports serialization(in binary) for both public and private Properties.
+2.SOAP Serialization--Supports serialization(in XML with SOAP Headers) for both public and private. Properties
+3.XML Serialization--Supports serialization(in plain XML) for only public Properties
+4.JSON Serialization--Supports serialization(in JSON Key value Pair) for both public and private Properties
+5.Custom Serialization--User defined serialization used as per their needs.
+
+Binary Serialization implemented with BinaryFormatter
+SOAP Serialization implemented with SOAPFormatter
+XML Serialization implemented with XMLFormatter
+JSON Serialization implemented with JSONFormatter
+
+
+In dotnet Serialization can be implemented using
+System.Runtime.Serialization-->Namespace
+System.Runtime.Serialization.Formatters.Binary-->BinaryFormatter
+System.Runtime.Serialization.Formatters.Soap-->SoapFormatter
