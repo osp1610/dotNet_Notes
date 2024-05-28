@@ -1,0 +1,328 @@
+Array: A fixed-size collection of elements of the same type. Efficient for random access but cannot easily change size. 
+
+string[] fruits = new string[] { "apple", "banana", "orange" }; 
+
+Console.WriteLine(fruits[1]); // Output: banana 
+
+ 
+
+ArrayList: A dynamic array that can grow or shrink at runtime. Less efficient than arrays for random access but more flexible for size changes. 
+
+ArrayList myList = new ArrayList(); 
+
+myList.Add("apple"); 
+
+myList.Add(10); // Can store different types 
+
+Console.WriteLine(myList[1]); // Output: 10 
+
+ 
+
+Generics: 
+
+Definition: Allows creating reusable data structures and methods that work with different data types without code duplication. 
+
+Example: Imagine a function to calculate the length of a string, an array, or a list. Generics make it possible to write one function for all! 
+
+// Generic function to get length of various collections 
+
+T GetLength<T>(T[] items) 
+
+{ 
+
+    return items.Length; 
+
+} 
+
+  
+
+// Usage: Length of string, array, and list 
+
+int stringLength = GetLength("Hello"); 
+
+int arrayLength = GetLength(new[] { 1, 2, 3 }); 
+
+int listLength = GetLength(new List<int>() { 4, 5, 6 }); 
+
+ 
+
+Map: Like HashMap, but a generic term for key-value pair collections. 
+
+// Declare a Map (Dictionary) of strings and integers 
+
+Dictionary<string, int> phonebook = new Dictionary<string, int>(); 
+
+  
+
+// Add key-value pairs 
+
+phonebook.Add("Alice", 12345); 
+
+phonebook.Add("Bob", 54321); 
+
+  
+
+// Access values using keys 
+
+Console.WriteLine(phonebook["Alice"]); // Output: 12345 
+
+ 
+
+List: A generic collection that allows duplicates and maintains the order of elements. Like ArrayList but type-safe and with more methods. 
+
+// Declare a List of strings 
+
+List<string> shoppingList = new List<string>(); 
+
+  
+
+// Add items 
+
+shoppingList.Add("Bread"); 
+
+shoppingList.Add("Milk"); 
+
+shoppingList.Add("Eggs"); 
+
+  
+
+// Access items by index (starts from 0) 
+
+Console.WriteLine(shoppingList[1]); // Output: Milk 
+
+ 
+
+ 
+
+Abstract method: A method declared in an abstract class but without implementation. Subclasses must provide their own implementation. 
+
+public abstract class Animal 
+
+{ 
+
+    public abstract void MakeSound(); 
+
+} 
+
+  
+
+public class Dog : Animal 
+
+{ 
+
+    public override void MakeSound() 
+
+    { 
+
+        Console.WriteLine("Woof!"); 
+
+    } 
+
+} 
+
+ 
+
+ 
+
+Collection: Collection is a group of objects that can be treated as a single unit. It provides methods for adding, removing, accessing, and iterating over its elements. Collections play a crucial role in organizing and managing data in your applications. 
+
+Generic Collections: Generic collections allows you to create data structures and methods that work with any type of data, not just predefined ones. 
+
+ 
+
+ 
+
+ 
+
+Virtual keyword: A method declared as virtual can be overridden in subclasses to provide different behavior. 
+
+public class Shape 
+
+{ 
+
+    public virtual double Area() 
+
+    { 
+
+        return 0; 
+
+    } 
+
+} 
+
+  
+
+public class Circle : Shape 
+
+{ 
+
+    public double Radius { get; set; } 
+
+  
+
+    public override double Area() 
+
+    { 
+
+        return Math.PI * Radius * Radius; 
+
+    } 
+
+} 
+
+ 
+
+ 
+
+Lambda expression: A concise way to define anonymous functions inline. 
+
+List<int> numbers = new List<int>() { 1, 2, 3, 4, 5 }; 
+
+List<int> evenNumbers = numbers.FindAll(x => x % 2 == 0); 
+
+// evenNumbers will contain { 2, 4 } 
+
+ 
+
+ 
+
+Anonymous functions 
+
+Anonymous functions come in two flavors: anonymous methods and lambda expressions. Both allow you to define functions inline without explicitly naming them, offering benefits like conciseness and flexibility. 
+
+1. Anonymous Methods: 
+
+Defined using the delegate keyword and an expression block. 
+
+Commonly used for event handlers or event arguments in ASP.NET Web Forms. 
+
+Can access variables from the outer scope (closure). 
+
+ 
+
+// Event handler using anonymous method 
+Button button = new Button(); 
+button.Click += delegate { Response.Write("Button clicked!"); }; 
+
+ 
+
+2. Lambda Expressions: 
+
+*Introduced in C# 3.0, offering a more concise syntax for anonymous functions. 
+
+Often preferred for simpler operations. 
+
+Cannot access variables from the outer scope by default. 
+
+// Filtering list using lambda expression 
+List<int> numbers = new List<int> { 1, 2, 3, 4, 5 }; 
+List<int> evenNumbers = numbers.Where(number => number % 2 == 0).ToList(); 
+
+ 
+
+Use Cases in ASP.NET: 
+
+Event Handlers: Both anonymous methods and lambda expressions can be used for event handling in ASP.NET MVC and Web Forms. 
+
+Data Processing: Lambda expressions are especially useful for filtering, sorting, and transforming data in LINQ queries. 
+
+Custom Validation: Both can be used to define custom validation logic in controllers or models. 
+
+Asynchronous Operations: Lambda expressions are commonly used with asynchronous methods like async and await. 
+
+ 
+
+HashSet: A collection that stores unique elements based on their hash codes. It offers fast lookups and prevents duplicates. 
+
+HashSet<int> numbers = new HashSet<int>() { 1, 2, 3, 3, 4 }; 
+
+Console.WriteLine(numbers.Count); // Output: 3 (duplicate removed) 
+
+ 
+
+ 
+
+HashMap: A data structure that stores key-value pairs, like a dictionary. It uses hashing to efficiently retrieve values based on keys. 
+
+Dictionary<string, string> capitals = new Dictionary<string, string>() 
+
+{ 
+
+    { "India", "Delhi" }, 
+
+    { "France", "Paris" }, 
+
+    { "USA", "Washington D.C." } 
+
+}; 
+
+Console.WriteLine(capitals["France"]); // Output: Paris 
+
+ 
+
+ 
+
+IEnumerable: 
+
+Definition: It's an interface representing any enumerable collection. It provides a single method, GetEnumerator(), which returns an IEnumerator object used to iterate over the collection's elements. 
+
+Example: 
+
+string[] fruits = new string[] { "apple", "banana", "orange" }; 
+foreach (string fruit in fruits) 
+{ 
+    Console.WriteLine(fruit); 
+} 
+ 
+// Behind the scenes, this uses IEnumerable's GetEnumerator() method. 
+
+ 
+ICollection: 
+
+Definition: This interface inherits from IEnumerable and adds functionalities for managing the size and contents of the collection. It defines methods like Add, Remove, Contains, and Count to manipulate elements. 
+
+Example: 
+
+List<int> numbers = new List<int>(); 
+numbers.Add(10); 
+numbers.Add(20); 
+Console.WriteLine(numbers.Contains(10)); // Output: True 
+ 
+// ICollection extends IEnumerable for adding/removing elements and checking size. 
+
+ 
+Enumerable: This is not an interface like the others, but a static class in the System.Linq namespace containing various extension methods used with collections. These methods provide operations like Where, Select, and OrderBy for filtering, transforming, and sorting elements. 
+
+Example: 
+
+string[] words = new string[] { "apple", "banana", "cherry" }; 
+List<string> uppercaseWords = words.Select(w => w.ToUpper()).ToList(); 
+ 
+// Enumerable.Select transforms each element in words to uppercase and stores it in uppercaseWords. 
+
+ 
+ 
+
+Key Points: 
+
+IEnumerable is the most basic, allowing iteration over any collection. 
+
+ICollection builds on IEnumerable by adding manipulation methods for modifying the collection. 
+
+Enumerable is a utility class with extension methods for working with collections in powerful ways. 
+
+Relationships: 
+
+ICollection inherits from IEnumerable. 
+
+Enumerable provides methods for various collection operations, not a distinct interface. 
+
+Choosing the Right Interface: 
+
+Use IEnumerable when you only need to iterate over elements. 
+
+Use ICollection when you need to add, remove, or modify elements. 
+
+Use Enumerable methods for additional transformations, filtering, and sorting on collections. 
+
+ 
