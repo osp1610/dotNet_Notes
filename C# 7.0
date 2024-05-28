@@ -1,0 +1,236 @@
+--Digit separators--
+-Digit separators in C# are feature  introduced in C# 7.0 that allows you to improve the readability of numeric literals by inserting underscores (_) between digits to visually separate them.
+
+-Limitations of using digit separators:
+They can't be used as the first or last digit in the numeric value.
+They may not appear next to decimal(0_.1)
+Cannot be used next to exponential character.(1.1e_1)
+Cannot be used next to type specifier(0b_11),(10_f)
+
+-Without Digit Separators:
+long bigNumber = 1234567890123456789;
+int creditCardNumber = 123456789;
+-With Digit Separators:
+long bigNumber = 1_234_567_890_123_456_789;
+int creditCardNumber = 123_456_789;
+
+
+--Binary Literal--
+-Binary Literals was introduced in C# 7.0, and it makes it easier to work with binary values, we use it when we dealing with bit manipulation. So, Binary literals in C# allow you to specify integer values using binary notation directly in your code.
+-It specified by prefix with 0b or 0B.  Binary Digits are in form of 1 or 0. 
+-If we give int value=1101 then it will act as one thousand one hundread and one as value. If we give int value=0b1101 then it will act as binary value.
+
+
+
+--Tuple--
+-A tuple in C# is a data structure that can hold a fixed number of elements of different data types.Tuples are available in C# starting from version 7.0.
+-Tuples provide a convenient way to group multiple values together into a single entity without the need to create a custom class.
+
+-Example:
+using System;
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+      //Tuple Creation using consrutor
+      Tuple<int,int,int,Tuple<int,int>> t1=new Tuple<int,int,int,Tuple<int,int>>(1,2,3,new Tuple<int,int>(4,5));
+      Console.WriteLine(t1.Item4);
+      //nested tuple
+      var t=Tuple.Create(1,2,3,4,5,Tuple.Create(6),7,Tuple.Create(8,9));
+      Console.WriteLine(t.Rest);  //nested tuple using rest operator((8,9))
+      
+      Console.WriteLine(t.Rest.Item1.Item2);//accesing nested tuple elements
+      //Tuple Deconstruction & discarding
+      var t2=Tuple.Create(1,2,3);
+      (int i,int j,_) =t2;
+      Console.WriteLine(i+j);
+     }
+}
+
+
+
+--Throw Expression--
+-The throw expression is a feature introduced in C# 7.0 that allows you to throw exceptions as part of an expression.
+It is similiar like the value we return for method or property
+Using this throw expression we can enhance code readablity so we can write it is in one line of code.
+Beacuse of it error handling is more compact and expressive.
+-So normally we throw expression on specific condition.
+before c# 7.0 we are doing it like:
+if (condition)
+{
+    throw new Exception("An error occurred.");
+}
+
+after this feature we can write it is with Turnary operator type where we throw expression in one line.
+result = condition ? throw new Exception("An error occurred.") : someValue;
+
+-Example: 
+int Divide(int dividend, int divisor)
+{
+    return divisor != 0 ? dividend / divisor : throw new DivideByZeroException("Cannot divide by zero.");
+}
+
+
+
+--Ref Local--
+-Ref local in c# is a feature introduced in C# 7.0. By using ref keyword for the existing variable we cannot create copy of variable value we just take refernce of that variable and we can read and modify that value without making copy of that.
+-it's used where you want to operate on a variable directly without making copy of it's value.
+-Ref locals can be used only with variables. not with constants and literals
+-we have to use ref keyword before varibale name and once before expression.
+
+-example:
+	int originalValue = 10;
+        ref int referenceToOriginal = ref originalValue;
+
+        Console.WriteLine("Original Value: " + originalValue); 	// Output: 10
+        Console.WriteLine("Reference Value: " + referenceToOriginal); // Output: 10
+
+        referenceToOriginal = 20;
+        Console.WriteLine("Updated Original Value: " + 	originalValue); // Output: 20
+        Console.WriteLine("Updated Reference Value: " + referenceToOriginal); // Output: 20
+
+
+
+
+--Ref Return--
+-Ref Return feature was introduced in C# 7.0. 
+-if we want modify original value of variable within method and we want reflect that change back to method calling code without making copy of value then we can use Ref Return c# feature.
+-we can only return refernces to variables.
+-caller type and method type both types need to be same.
+-when we return refernce we can modify original variable through refernce.
+-we have use ref keyword where called method, we have to use in method declaration and in method while returning value.
+
+-example:
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 1, 2, 3, 4, 5 };
+
+        ref int element = ref FindAndModifyElement(numbers, 3);
+
+        Console.WriteLine("Original Array:");
+        foreach (var num in numbers)
+        {
+            Console.WriteLine(num);
+        }
+
+        element = 99;
+
+        Console.WriteLine("Updated Array:");
+        foreach (var num in numbers)
+        {
+            Console.WriteLine(num);
+        }
+    }
+
+    static ref int FindAndModifyElement(int[] array, int target)
+    {
+        for (int i = 0; i < array.Length; i++)
+        {
+            if (array[i] == target)
+            {
+                return ref array[i];
+            }
+        }
+
+        throw new InvalidOperationException("Element not found.");
+    }
+}
+
+
+
+
+--Async main method--
+-The async main method is a feature introduced in C# 7.1.
+this feature allows us to define the entry point of the C# application with 'async' modifier. Using async in main method we can use asynchronous programming techniques within the Main method. By using async to main method it is easier to work with 
+asynchronous operations such as I/O-bound or network-bound tasks.
+-We have use await when we use async for main method like other async methods.
+-async main method will return Task,Task<int>,void. 
+
+-Example:
+using System;
+using System.Threading.Tasks;
+
+class asyncExample
+{
+    public static async Task Main()
+    {
+        Console.WriteLine("Starting...");
+
+        // Simulate an asynchronous operation (e.g., reading from a file)
+        await Task.Delay(2000);
+
+        Console.WriteLine("Async operation completed.");
+
+        // Your application logic here
+
+        Console.WriteLine("Exiting...");
+    }
+}
+
+
+--Pattern Macthing--
+-Pattern matching simplifies conditional logic by providing a concise way to test values against patterns. It enhances code readability.
+-Example: 
+	object obj = "Hello";
+        if (obj is string str)
+        {
+            Console.WriteLine($"The length of the string is {str.Length}");
+        }
+
+ 
+
+--Local Functions--
+-Local functions allow you to define functions within other functions.
+-They are useful for encapsulating and reusing logic within a method and improve code organization and readability.
+-Example
+        int result = CalculateSum(5, 7);
+        Console.WriteLine($"Sum: {result}");
+        int CalculateSum(int a, int b)
+        {
+            return Add(a, b);
+            int Add(int x, int y)
+            {
+                return x + y;
+            }
+        }
+
+ 
+--Out Variables--
+-Out variables simplify the process of declaring and initializing variables when using methods that return values through the 'out' parameter. It reduces
+the need for separate variable declarations before method calls.
+-Example:
+    class Program
+    {
+    public static void Main()
+    {
+        int a = 5;
+        int b = 7;
+        int sum;
+        CalculateSum(a, b, out sum);
+        Console.WriteLine($"The sum of {a} and {b} is {sum}");
+    }
+    static void CalculateSum(int x, int y, out int result)
+    {
+        result = x + y;
+    }
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
