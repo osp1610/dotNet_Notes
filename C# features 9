@@ -1,0 +1,169 @@
+C sharp features 9
+****1..Records:
+//Records are a feature introduced in C# 9 for creating immutable data types. They come with several built-in functionalities like equality members, a ToString method, and deconstruction patterns.
+
+using System;
+record Add(int a , int b);
+
+class program{
+ public static void Main(){
+
+var add = new Add(6,8);
+var add1 = new Add(8,9);
+
+Console.WriteLine($" add1: {add.a+add.b}");
+Console.WriteLine($" add2: {add1.a+add1.b}");
+
+bool areEqual = add.Equals(add1);
+Console.WriteLine($"Are the two methods equal? {areEqual}");
+}
+}
+
+**Records simplify the process of defining and working with data structures, reducing boilerplate code, and enhancing code readability and maintainability.
+
+
+
+****2..Init-Only Setters:
+Init-only setters allow you to create properties that can only be set during object initialization but not modified afterward. This is useful for creating immutable objects:	
+
+using System;
+
+public class Student
+{
+    public string Name { get; init; } // Using init-only setter
+	public int Id {get; init;}
+
+    public Student(string name ,int id)
+    {
+        Name = name;// Initialize the property using the init-only setter
+		Id = id;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        // Create a Student object
+        var student = new Student("Alice",4);
+
+        // Access and display the Name property
+        Console.WriteLine($"Student's Name: {student.Name} {student.Id}");
+
+        // Attempt to modify the Name property (will result in a compilation error)
+        // student.Name = "Bob"; // Error: Cannot assign to 'Name' because it is read-only.
+    }
+}
+
+
+
+****3..Pattern Matching Patterns:
+C# 9 introduced enhancements to pattern matching, including logical patterns (and, or, and not), relational patterns, and improvements to the is and switch expressions:
+
+if (shape is Circle { Radius: > 0 }) // Pattern matching with a property
+{
+    // Handle circles with a positive radius
+}
+
+var result = value switch
+{
+    < 0 => "Negative", // Relational pattern
+    > 0 => "Positive",
+    _ => "Zero"
+};
+
+In the first example, we use a property pattern to check if shape is a Circle with a positive radius. In the second example, we use a relational pattern in a switch expression to determine the sign of value.
+
+
+
+****4..Lambda Discard Parameters:
+Lambda expressions in C# allow you to use discard parameters (underscore _) when you don't need to use one or more of the parameters:
+
+
+class Program
+{
+    static void Main()
+    {
+        List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
+
+        // Using lambda discard pattern with Select to square each number
+        var squaredNumbers = numbers.Select(_ => _ * _);
+        foreach (var num in squaredNumbers)
+        {
+            Console.WriteLine(num);
+        }
+}
+
+****5..Covariant Return Types:
+Covariant return types, introduced in C# 9, allow you to override a base class method with a more derived return type. This feature makes it possible to return a more specific type in a derived class while still conforming to the base class method's signature. This enhances code readability and flexibility in certain scenarios.
+
+class Animal { }
+class Mammal : Animal { }
+class Giraffe : Mammal { }
+
+class Zoo
+{
+    public virtual Mammal GetMammal() => new Mammal();
+}
+
+class Safari : Zoo
+{
+    public override Giraffe GetMammal() => new Giraffe(); // Covariant return type
+}
+
+In this example:
+
+We have a base class Animal and a derived class Mammal, which itself is the base class for Giraffe.
+
+The Zoo class has a virtual method GetMammal() that returns a Mammal.
+
+In the Safari class, which is derived from Zoo, we override the GetMammal() method. However, instead of returning a Mammal, we return a more specific Giraffe.
+
+This is possible because C# 9 supports covariant return types. The return type in the derived class (Safari) is more derived (specific) than the return type in the base class (Zoo), and this is allowed by the language.
+
+****6..Target Typed Conditional expression:
+
+[16:39] Omkar Sharad Patil
+
+using System;
+
+ 
+
+class Program
+
+{
+    static void Main()
+
+    {
+        int x = 10;
+
+        int y = 20;
+
+        // Ternary Operator
+
+        int result1 = (x > y) ? x : y;
+
+        Console.WriteLine($"Ternary Operator: {result1}");
+
+        // Target-Typed Conditional Expression (C# 9.0+)
+
+        var result2 = (x > y) ? x : y;
+
+        Console.WriteLine($"Target-Typed Conditional: {result2}");
+
+    }
+
+}
+
+Ternary Operator (? :):
+In the ternary operator, you need to explicitly specify the type of the result variable (result1 in this case). In this example, it's explicitly declared as an int.
+The type must be specified because the compiler doesn't infer it automatically.
+The ternary operator has been a part of C# for a long time and doesn't support automatic type inference.
+Target-Typed Conditional Expression (C# 9.0+):
+In the target-typed conditional expression, we use var to declare result2. The type is inferred automatically by the compiler based on the types of the true and false branches.
+In this example, var allows us to write more concise code, reducing redundancy and improving readability.
+This feature is available in C# 9.0 and later, making code more modern and type-safe when types can be inferred from the branches.
+
+
+
+
