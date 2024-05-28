@@ -1,0 +1,79 @@
+OOPs Important
+1. What are the important pillars in OOP?
+	-Abstraction: Show only what is neccessary to user
+	-Polymorphism: Object acts differently under different Conditions
+	-Encapsulation: Hide Complexity
+	-Inheritance: Parent Child relationship
+
+2. What is a Class and Object ?
+	-Class is type, Blue Print and object is a instance of the class.
+
+3. Abstraction VS Encapsulation ?
+	-Abstraction means show what is neccessary things to the user.
+	-Encapsulation means hide Complexity
+	-Abstraction is nothing but design thought process its happen during desing phase
+	-Encapsulation happens while during execution phase developer uses encapsulation to implement abstraction.
+	
+4. What is inheritance?
+	-Inheritance is nothing but relationship between parent and child class. where child can access all the methods from parent class. when we create object of child class using child class object we can access all the methods from parent class but with using parent class object we can access only parent class fields and methods. 
+IS-A relation is like manager is child of employee class so here manager is the only child of employee class.
+
+5. What is use of virtual Keyword?
+	-Virtual keyword is help us to define some logic in parent class and it can be overridden in parent class
+
+6. What is overriding?
+	-Overriding is nothing but rewriting the logic of methods from parent class in its child class according requirement of that class. It possible using virtual keyword and override keyword. the method which contains virtual keyword it must have to override in his child class. Method always have same signature and name as written in parent class.
+
+7. What is Overloading?
+	-Overloading means method with same name but different parameters.
+	-It is in same class with same method names with different parameters
+
+8. What is polymorphism?
+	-Polymorphism means object have ability to act differently under different conditions.
+	-Poly means many and morph means different.
+ 	-in C# we can say Generics is example of polymorphism
+
+9. Explain Static VS Dynamic Polymorphism ?
+	-static polymorphism is implemented by method overloading. static is nothing but compile time polymorphism.
+	-dynamic polymorphism is implemented using method overridng. it is nothing but run time polymorphism.
+
+10. Operator Overloading?
+	-Operator overloading is nothing redefining meaning of the operator. Like when we use + operator on two string then it uses concatation and if i do 1+2 then it do sum of these two number.
+
+11. Why do we need Abstract Classes ?
+	-Abstract class is half defined parent class where there are some implementations are defined and some are left to define by child classes.
+
+12. Are Abstract Methods virtual?
+	-this methods are by default virtual.
+
+13.  Can we create an instance of Abstract Classes ?
+	No we can not create instance of AC.
+
+14.  Is it compulsory to implement Abstract Methods ?
+	Yes it is compulsory
+	
+
+15. Explain Interface and Why do we need it ?
+		Interface is contract it is legal binding between developer who is creating a class and consumer using that class.
+		whatever fields methods we type in interface are pure signature we dont implement or write logic in interface. 
+		we can not use private for fields in interface. by default all are public.
+		All the methods inside of the interface need to be implemented in its class where we are implementing interface.
+		If we break a contract then it will have high impact analysis.
+
+16. Explain Interface Segregation Principle ?
+		Interface segregation is principle where we can not force a class to implement unneccssary methods from interface so keep interface seprated to we will use according to our use whichever place we want.
+
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
