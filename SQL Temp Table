@@ -1,0 +1,25 @@
+Temp Table
+-temp db always perform mathematical manuplation it present in tempdb
+-we can create temporary tables and will avilable only to specific user.
+Two temp tables
+1.local temp table--visible to specific connection where the temp. table created
+-it start with single #
+2.global temp table--it visible to all connections during the time of temp table creation
+-it start with two ##
+
+example-local
+create table #TempFlight (
+flightid int primary key,
+flightId varcha(20) not null,
+Amount decimal not null
+);
+
+global-
+create table ##TempFlight (
+flightid int primary key,
+flightId varcha(20) not null,
+Amount decimal not nullg
+);
+
+
+
