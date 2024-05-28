@@ -1,0 +1,36 @@
+
+Steps to create Code First Approach in EF Core:
+
+1. Create .NET Core Application (Console Application)
+
+2. Add 3 Namespaces to the project
+
+3. You have to create classes in VS that will migrate to Relational table (create properties along with relationship)
+
+4. Use DataAnnotations to create necessary constraints that will get created in the DB after migration (using attributes, data annotations will perform the data validations/constraints)
+ 
+Using System.ComponentModel.DataAnnotation
+
+5. Create context class with necessay dbset along with connection string that contains the datbase connection details
+
+6.In the package manager console type below commands (this is for the first time)
+
+    i.  dotnet tool install --global dotnet-ef --> press enter (only for the first time)
+
+    ii. dotnet tool update --global dtonet-ef --> press enter. You will get update success message. (Don't forget to close and reopen the application in VS) (When ever you want to update)
+
+    iii. dotnet ef --> Press enter. It will tell you the version of dotnet ef (Always)
+
+7. Write Migrate commands to update changes in VS has to applied in Data Source (DB)
+
+PMC --> Add-Migration <<Migration Name>>
+
+Ex: Add-Migration EFCoreDB --> Press enter --> It will start migrate and establish the connection with db (Will not create any table)
+
+8. To make structure creation/changes --> type the below statement
+
+Update-Database
+
+9. You can interact with databse using LINQ to Entity syntax
+
+10. To perform any DML actions (Insert/Update/Delete) --> Make sure make necessary changes in the Dbset using DBContext and update these changes back to db using SaveChanges() method.
