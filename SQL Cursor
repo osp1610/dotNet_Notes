@@ -1,0 +1,43 @@
+-SQL Server DataTpyes-
+	1.Integer-->Fixed Precison and Approximate Precison
+		-Tinyint
+		-Smallint
+		-int/integer
+		-Bigint
+		-Decimal
+	-Approximate Precison-->float and real
+	-char,varchar,varbinary,text,nchar,nvarchar,ntext
+	-Date,Datetime,smalldatetime
+	-bit
+	-varbinary
+	-Char(max),varchar(max),varbinary(max)-to store data in binary format like image audio video etc
+	-Money
+	-UniqueIdentifier-it automatic genrates 
+	-table
+	-image
+	-cursor
+	-xml
+	-sqlvariant-
+
+Cursor-
+cursor is memory area/regoin which is used  to process resultset as on row at a time
+steps:
+executing the select query output and store it in cursor area
+from cursor, fetch onw record/row at a time and process the result
+
+1.declare the cursor
+	a-open cursor
+		--fetch a cursor->it will fetch one row at a time
+	b-close a cursor
+2. de-allocate cursor
+
+it will work with both normal table and plsql table also.
+
+example-
+declare supppliercursor cursor for
+select * from supplier;
+open suppliercursor
+fetch from suppliercursor
+close suppliercursor
+
+deallocate suppliercursor;
