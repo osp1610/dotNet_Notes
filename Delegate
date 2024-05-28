@@ -1,0 +1,120 @@
+Delegate:It's a type safe function 
+pointer.
+Delegate are also reference type
+
+it holds reference of a method and then
+calls the method for execution.
+
+what is use of delegate
+-> To call method explicitly before this
+we use to call method by creating instance
+of a class if its is non-static. if
+it is static then we call it using name of
+method.
+
+Define delegates under namespace.
+
+call method using delegate we have to 
+follow three steps
+1.Define delegate
+modifiers delegate void|type <Name> (parameter list)
+
+2.Create a instace of delagete.
+First create instance of class
+then create instance of a delgate
+AddDelegate ad = new addDelegate(If me
+thod is satic directly give method name
+in this block but it is non static need
+to give reference of a class instance)
+
+
+3.Now call the delegate by passing required
+parameter values so that method gets executed
+
+
+delagates are holding the reference of 
+methods
+**Multicast delegate:
+delegate holding refernce of more than
+one method
+
+Same as previous but we need to do binding
+with second method like this
+
+lets say we have class rect
+
+rect r = new rect();//Instance of a class
+
+getDelegate gd = new getDelegate(r.getArea)
+
+gd += r.getPeimeter//Multicast delegate
+
+r.Invoke(11.22,22.22)
+
+
+If you are doing multicasting both methods
+signature must be matched with each other.
+
+when you used multicast delegates it is
+recommended only when return types are 
+void because if return types are int or
+double it may override the result
+
+**Anonymous Methods
+Related with delegate
+without binding methods it binding code 
+with it.
+
+Method without name is anonymous method
+
+It helps to make code less
+
+example
+
+ GreetDelegate gd = delegate(string name)
+        {
+            return "Hello " + name + " have a nice day";
+        };
+
+Anonymous code does not suggested for
+large value of code.It is use only
+for small value of code.  
+
+Event handler is a delegate
+
+
+**Lambda Expression
+It is a short hand of writing a anonymous
+methods
+example:
+
+
+GreetDelegate gd = (name)=>
+        {
+            return "Hello " + name + " have a nice day";
+        };
+
+=>-Lambda Operator
+
+Predefined delegates
+1.Func
+->It is used when method return some value
+func<double,double,double,double> da = AddNums;
+     double res = da.Invoke(10.22,20.11,30.44);
+     Console.WriteLine(res);
+
+2.Action
+->It is used when method is void return
+type
+Action<int,float,double>ds = SubNums;
+     ds.Invoke(30,20.2f,20.44);
+
+3.Predicate
+->It is used when method returns bool.
+Predicate<string> dc = Checkno;
+     bool  s = dc.Invoke("Hello");
+     Console.WriteLine(s);
+
+
+
+
