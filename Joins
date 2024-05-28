@@ -1,39 +1,84 @@
-Joins-
+***Joins***
 -To retrive data from more than one instance of table we need to use joins.
 -Join always fetch matyching records.
 -In sql server you perform joins using theta model(where clause) OR ANSI-SQL(Using jon keyword)Model.
 -To join "N" tables we need to use minimum (n-1) table join condition.
 -Equi or inner or join--This will fetch only matching record from the table.
+-In a well-designed relational database, data is often distributed across multiple tables to eliminate data redundancy and maintain data integrity. Each table typically represents a specific entity or concept (e.g., customers, orders, products).
+-SQL joins allow you to retrieve and display data from these normalized tables as a coherent whole, making it easier to work with structured data 
+-When you need to retrieve data from multiple tables related by common columns (such as foreign keys), SQL joins allow you to combine the relevant information into a single result set.
 
---------------------------
-*student name city marks and garde of the student
-select * Grade,Name,Marks,city
-from studentgrade sg, student s
-Where s.marks between sg.Lowrange and sg.Highrange
-or
-where sg.Marks >=sg.Lowrange and s.Marks<=sg.Highrange
+Types of Joins:
 
--Non-Equi Join-using other than"=" operator to retrive data
- fom more than one table. this can be achived only using theta model
- 
+-Inner Join:
+-Returns only the rows that have matching values in both table.
+Example:
+select Employees.City, Company.OfficeID from Employees 
+	inner join Company
+	on Employees.EmpID=Company.EmpIds
+	where Company.EmpCount>=80;
 
------------------------------------------
-Self Join-same table have primary and forigen key. 
-*Query to display Name Age BirthCity ParentName CurrentRole
+-LEFT JOIN:
+-Returns all rows from the left table and the matching rows from the right table. 
+-If there's no match, NULL values are returned for the right table.
+-Example:
+select Employees.FirstName, Company.OfficeID from Employees
+	left join Company
+	on Employees.EmpID=Company.EmpIds
+	where Company.EmpCount<=80;
 
-select * h.Name, h.Age,h.BirthCity, p.Name,h.CurrentRole
-from human h join human p
-on h.parentId=p.Id
+-RIGHT JOIN
+-Returns all rows from the right table and the matching rows from the left table. 
+-If there's no match, NULL values are returned for the left table.
+Example:
+select Company.OfficeID,Employees.FirstName, Employees.LastName from Company
+	right join Employees
+	on Company.EmpIds=Employees.EmpID
+	where Company.EmpCount>=100;
 
-------------------
-cross join-if no relation still you want to retrive the data you will retrive bt you will get all the data.
-           it will do all combination from both the table.
+-FULL JOIN:
+-Returns all rows when there is a match in either the left or right table.
+-If there's no match, NULL values are returned for the table without a match.
+-Example:
+SELECT Employees.FirstName, Employees.LastName, Company.OfficeID, Company.EmpCount
+    FROM Employees
+    FULL JOIN Company ON Employees.EmpID = Company.EmpIds
+	where Company.EmpCount=100;
 
-------------------------
-outer join- Display both matching and non matching records.
-left outer ,
-right outer,
-full outer join
+-SELF JOIN:
+-A self-join is used to combine rows from a single table. It's like joining a table with itself.
+-Example:
+select E1.FirstName,E2.LastName from Employees E1
+	Inner join Employees E2 on E1.EmpID=E2.EmpId;
 
-*query to display travel name and passangers travelling
-select bus.travels,passenger.passangername from bus join passanger on bus.busid=passenger.busid;
+-CROSS JOIN:
+-Returns the Cartesian product of two tables, i.e., all possible combinations of rows from both tables.
+-Example:
+SELECT Employees.FirstName, Company.EmpCount
+	FROM Employees
+	CROSS JOIN Company
+	where Company.EmpCount>=100;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
