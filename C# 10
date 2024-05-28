@@ -1,0 +1,163 @@
+***Global Using Directive***
+-Global Using Directive Introduced in C#10.
+-why we use using directive?-->we use using directive import namespace in the class. Import namespace can be done by adding a “using” statement at the top of the class.
+-example-
+using System;
+namespace SampleNamespace
+{
+    public class SampleClass{
+
+    }
+}
+
+-“using” directive Helps us to use all types available in the namespace. It will not give you access to any namespace nested in that specific namespace.
+-Suppose we have many classes, and all classes need to use the “System.Collections.Generic” namespace, how will you achieve it?
+The answer would be before C# 10 – Import “System.Collections.Generic” namespace in all the classes. 
+Every time import the same namespaces in multiple classes and that’s why Microsoft added a global modifier in C# 10. 
+-Adding a global modifier to the “using” directive allows you to use all the types of the namespace throughout the project files
+-syntax:
+ Global using <fully-qualified-namespace>;
+
+-Example:
+global using System.Collections.Generic;
+
+
+***Record Structs***
+-
+
+***File-scoped namespace declaration***
+-File-scoped namespace declaration is introduced in C# 10 version.  Before C# 10 we are using NameSpace with Curly braces{} in that we write class and members.
+-From C# 10 we can write it without curly barces just we have to write namespace and end it with semi colon it's automatically applicable for that whole file.
+-Example:
+ Before C# 10:
+ namespace MyNamespace.Services
+ {
+    class MyClass
+    {
+
+    }
+ }
+ After C# 10:
+ namespace MyNamespace.Services;
+    class MyClass
+    {
+
+    }
+
+
+***Constant Interpolated String***
+-Before C# 10 it was possible to concatenate strings, the string interpolation functionality existed but did not allow to have interpolated string constants.
+-To define a constant interpolated string, you use the const modifier before the string keyword and the $ symbol before the string literal, just like you would with a regular interpolated string
+-Example:
+ -Before C# 10:
+  private const string HomeUri = "home";
+  private const string dev = HomeUri + "://localhost:5001";
+  if we want concate constant strings how we need to do before C# 10.
+ -After C# 10:
+ private const string HomeUri = "home";
+ private const string dev = $"{HomeUri}://localhost:5001";
+ So after C# 10 we can do it like this with constant values.
+
+
+***Lambda Improvements***
+-Allow lambdas with attributes
+-Allow lambdas with explicit return type
+-For attributes on lambdas would provide parity with methods and local functions.
+-Support for explicit return types would provide symmetry with lambda parameters where explicit types can be specified. Allowing explicit return types would also provide control over compiler performance in nested lambdas where overload resolution must bind the lambda body currently to determine the signature
+-Example:
+ -f = ([A] x) => x;         // [A] x
+ -var add = () => return 4+6;
+
+
+***Extended Property Patterns***
+-Property pattern. C# 10 improves that pattern by simplifying access to nested properties.
+-You can reference nested properties or fields within a proper pattern. The property pattern becomes more readable and requires fewer curly brackets.
+-Example:
+Person person = new()
+{
+    Name = "Oleg",
+    Location = new() { Country = "PL" }
+};
+
+if (person is { Name: "Oleg", Location.Country: "PL" })
+{
+    Console.WriteLine("It's me!");
+}
+
+class Person
+{
+    public string Name { get; set; }
+    public Location Location { get; set; }
+}
+
+class Location
+{
+    public string Country { get; set; }
+}
+
+
+
+***Assignment and declaration in same deconstruction***
+-This feature is introduced in C#10. 
+-so before C# 10 we can not assign and declare values for deconstruction in deconstructor. 
+-From C# 10 we can assign and declare values where we to deconstruction in code.
+-Example:
+  -Before:
+       -// Initialization:
+	(int x, int y) = point;
+	// assignment:
+	int x1 = 0;
+	int y1 = 0;
+	(x1, y1) = point;
+
+  -After:
+        - int x = 0;
+	  (x, int y) = point;
+
+
+***Allow AsyncMethodBuilder attribute on methods***
+-This feature is Introduced in C# 10.
+-Async Method Builder is came in C# 7 where we can write Async with method return type of method.
+-But after C# 10 instead of writing it is with method return type we can write them as attribute above the method.
+-We can write them using System.Runtime.CompilerServices; namespace in c#.
+-From this namesapce AsyncMethodBuilder is class that required to use.
+-Example:
+ Before:
+	public async Task<IActionResult> getValues(){
+	//code
+	}
+ After:
+       [AsyncMethodBuilder(typeof(AsyncVoidMethodBuilder))]
+       public void ExampleMethod()
+       {
+	//code	
+       }
+
+
+***CallerArgumentExpression attribute diagnostics***
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
