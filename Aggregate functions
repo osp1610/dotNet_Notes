@@ -1,0 +1,102 @@
+***Aggregate functions***
+-Aggregate functions in SQL are used to perform mathematical calculations using multiple values and it will return single value answer for that values as a result.
+-This functions operate on columns.
+-Mostly Aggregate functions used with Group By clause to combine data in Groups.
+-COUNT(),SUM(),AVG(),MIX(),MIN() these are the Aggregate functions that we use in SQL.
+
+--COUNT():
+-Count is used to count no of rows in result set or specific column.
+-So primary goal of using count is to determine the number of rows that meet specific criteria or total no of rows.
+-Syntax:
+ COUNT(expression)
+
+-Example:
+ select COUNT(*) AS total_rows
+ from employees;
+
+ select COUNT(*) AS employee_count
+ from employees
+ where City='Pune';
+
+ select COUNT(DISTINCT FirstName) AS UnqiueNames
+ from Employees;
+
+
+--SUM():
+-The SUM() function in SQL is an aggregate function used to calculate the sum of numeric values in a specified column or expression within a table.
+-It is commonly used to perform calculations that involve adding up values, such as finding the total sales, the sum of quantities, or the sum of expenses.
+-The SUM() function is typically used in conjunction with the GROUP BY clause to calculate sums within groups of data. When used without GROUP BY, it calculates the sum of all values in the specified column.
+
+-Syntax:
+SUM(Col_Name)
+
+-Example:
+-SELECT SUM(EmpCount) AS totalEmployees
+FROM Company; --it will return total sum of EmpCount col.
+
+SELECT EmpIds, SUM(EmpCount) AS totalEmployees
+FROM Company
+where EmpCount>80
+GROUP BY EmpIds; --it will return sum depends on EmpIds.
+
+
+--AVG():
+-The AVG() function in SQL is used to calculate the average value of a set of numerical values within a specified column.
+-The AVG() function calculates the arithmetic mean of a set of values, which represents the sum of all the values divided by the count of values.
+-The AVG() function is typically applied to columns containing numeric data types, such as INT, FLOAT, or DECIMAL. It ignores NULL values when calculating the average.
+-Syntax:
+AVG(column_name)
+
+-Example:
+SELECT AVG(EmpCount) AS EMPCount
+FROM Company;
+
+
+--MAX():
+-The MAX() function in SQL is an aggregate function used to find and retrieve the maximum value from a specified column in a database table. 
+-It operates on a set of values and returns the highest value found in the specified column. 
+-It can be applied to various data types, including numbers, dates, and text, depending on the data stored in the column
+-Syntax:
+ SELECT MAX(column_name) FROM table_name;
+
+-Example:
+SELECT MAX(EmpCount) AS EmpCount
+FROM Company;
+ 
+
+--MIN():
+-The MIN() function in SQL, including SQL Server, is an aggregate function used to find and return the minimum (smallest) value within a specified column or expression in a table.
+-The MIN() function is primarily used to retrieve the smallest value from a set of values within a column.
+
+-Syntax:
+ MIN(column_name)
+
+-Example:
+SELECT MIN(EmpCount) AS EmpCount
+FROM Company;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
