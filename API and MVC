@@ -1,0 +1,460 @@
+API (Application Programming Interface) is a set of rules and protocols that allows one software application to interact with another. It defines the methods and data formats that applications can use to request and exchange information. APIs are used to enable communication between different software systems, allowing them to work together to perform tasks or exchange data. 
+
+ASP.NET Web API is a powerful framework developed by Microsoft for building web APIs on top of the .NET platform. It allows you to create HTTP-based services that can be accessed by various clients, including web browsers, mobile apps, desktop applications, and even other web APIs. 
+
+Key Features: 
+
+RESTful principles: Supports building RESTful APIs that adhere to common design patterns for creating consistent and easy-to-consume services. 
+
+Flexible data formats: Works with various data formats like JSON, XML, and plain text, enabling communication with diverse clients. 
+
+Routing: Maps incoming HTTP requests to specific methods in your API controllers, simplifying request handling. 
+
+Model binding: Automatically binds data from HTTP requests to your API models, reducing boilerplate code. 
+
+Dependency injection: Promotes loose coupling and testability by enabling easy injection of dependencies into your API classes. 
+
+Filtering and sorting: Allows clients to filter and sort data returned by your API, providing more control over responses. 
+
+Authentication and authorization: Offers built-in support for implementing authentication and authorization mechanisms to protect your API resources. 
+
+ 
+
+ASP.NET Web API core is a lightweight, open-source framework for building HTTP services that can be used across a variety of platforms, including Windows, macOS, and Linux. It is the successor to the ASP.NET Web API framework and is built on top of the ASP.NET Core framework. 
+
+Key Features: 
+
+Cross-platform compatibility: Runs on Windows, macOS, and Linux, expanding your reach to various environments. 
+
+Modular and lightweight: Built with smaller, independent libraries, leading to smaller and faster applications. 
+
+Open-source and community-driven: Benefits from continuous community contributions and improvements. 
+
+Built on .NET Core: Leverages the performance and features of .NET Core, including faster startup times and improved memory management. 
+
+Similar API: Maintains a familiar programming model for developers familiar with the classic ASP.NET Web API. 
+
+Supports modern development practices: Designed for microservices architecture, dependency injection, and cloud deployment. 
+
+ 
+
+ADO.NET, which stands for Active Data Objects.NET, is a data access technology developed by Microsoft for the .NET platform. It provides a set of classes and components that enable developers to interact with various data sources, including relational databases, XML files, and more. 
+
+Here are some key features of ADO.NET: 
+
+Provides different data providers: Specific components for connecting to different types of data sources, such as SQL Server, Oracle, or MongoDB. 
+
+Offers various data access models: Supports different ways to interact with data, including connected mode (connected to a database throughout the operation) and disconnected mode (data retrieved and manipulated locally). 
+
+Enables data manipulation: Allows developers to insert, update, and delete data in the underlying data source. 
+
+Supports data binding: Provides mechanisms to bind data to user interface elements in applications. 
+
+Offers transaction management: Allows developers to control how changes to data are committed or rolled back. 
+
+In ASP.NET, Model-View-Controller (MVC) is a design pattern that separates an application into three distinct parts: Model, View, and Controller. This separation promotes loose coupling, improves maintainability, and makes code easier to understand and test. 
+
+Model: 
+
+Represents the data layer of your application. 
+
+Contains business logic and interacts with data sources (databases, file systems, etc.). 
+
+Doesn't contain any UI logic or presentation details. 
+
+View: 
+
+Responsible for presenting data to the user. 
+
+Typically uses HTML, CSS, and JavaScript to create the user interface (UI). 
+
+Doesn't contain any application logic or interact directly with data sources. 
+
+Controller: 
+
+Acts as the orchestrator between the Model and the View. 
+
+Handles user requests (e.g., form submissions, button clicks). 
+
+Retrieves data from the Model and passes it to the View for rendering. 
+
+Updates the Model based on user interactions. 
+
+Benefits of using MVC in ASP.NET: 
+
+Separation of concerns: Each component has a specific responsibility, making code more organized and maintainable. 
+
+Testability: Easier to test individual components in isolation. 
+
+Flexibility: You can easily change the implementation of a component without affecting other parts of the application. 
+
+Reusability: Models and Views can often be reused across different controllers. 
+
+Example: 
+
+Model: Represents a product with properties like name, price, and description. 
+
+View: Displays a product's details on a web page. 
+
+Controller: Handles requests to view or add products, interacts with the Model to retrieve or update data, and passes it to the View for rendering. 
+
+.NET Core and .NET: 
+
+Cross-platform support: 
+
+NET Core is designed to be cross-platform and runs on Windows, macOS, and Linux. 
+
+.NET Framework is primarily for Windows and does not have official support for other operating systems. 
+
+Modularity and size: 
+
+.NET Core is modular, meaning you can include only the components you need for your application, which can result in smaller application sizes. 
+
+.NET Framework is monolithic, meaning you get the entire framework when you install it, which can result in larger application sizes. 
+
+ 
+
+Compatibility: 
+
+.NET Core is not fully backward compatible with the .NET Framework. Some libraries and APIs available in the .NET Framework may not be available in .NET Core. 
+
+.NET Framework is backward compatible with older versions of the framework, allowing applications built on previous versions to run on newer versions without modification. 
+
+Development model: 
+
+.NET Core introduced a new development model with ASP.NET Core, which is more modular and follows modern web development practices. 
+
+.NET Framework continues to use the traditional ASP.NET framework for web development, which is more tightly integrated with Windows and IIS. 
+
+Tooling: 
+
+.NET Core uses the new .NET CLI (Command Line Interface) for project management and build tasks. 
+
+.NET Framework uses Visual Studio and traditional project files for project management and build tasks. 
+
+Future development: 
+
+.NET Core is the future of the .NET platform, with Microsoft focusing its efforts on further development and improvement. 
+
+.NET Framework is still supported by Microsoft, but future development efforts are focused on .NET Core. 
+
+ 
+
+ 
+
+Dependency injection (DI) is a design pattern that promotes loose coupling and improves the testability and maintainability of your code. It essentially involves providing dependencies to a class through its constructor, rather than creating them within the class itself. 
+
+Implementing Dependency Injection (DI) in C# 
+
+Dependency injection (DI) is a design pattern that promotes loose coupling and improves code maintainability by separating the construction of objects from their usage. Here's a breakdown of two common ways to implement DI in C#: 
+
+1. Constructor Injection: 
+
+Involves passing dependencies through the constructor of a class. 
+
+Requires explicit definition of dependencies in each class constructor. 
+
+Offers good control over how dependencies are created and configured. 
+ 
+
+2. Property Injection: 
+
+Sets dependencies through public properties after object creation. 
+
+More flexible for dynamic injection or configuration changes. 
+
+May require additional logic to ensure dependencies are set before use. 
+
+ 
+
+public class CoffeeMaker 
+
+{ 
+
+    private readonly IWaterHeater _waterHeater; // Dependency interface 
+
+  
+
+    public CoffeeMaker(IWaterHeater waterHeater) // Inject dependency in constructor 
+
+    { 
+
+        _waterHeater = waterHeater; 
+
+    } 
+
+  
+
+    public void MakeCoffee() 
+
+    { 
+
+        _waterHeater.BoilWater(); // Use the injected dependency 
+
+        Console.WriteLine("Coffee is ready!"); 
+
+    } 
+
+} 
+
+  
+
+public interface IWaterHeater // Interface for dependency 
+
+{ 
+
+    void BoilWater(); 
+
+} 
+
+  
+
+public class ElectricHeater : IWaterHeater // Concrete implementation 
+
+{ 
+
+    public void BoilWater() 
+
+    { 
+
+        Console.WriteLine("Electric heater boiling water..."); 
+
+    } 
+
+} 
+
+  
+
+public class GasHeater : IWaterHeater // Another concrete implementation 
+
+{ 
+
+    public void BoilWater() 
+
+    { 
+
+        Console.WriteLine("Gas heater boiling water..."); 
+
+    } 
+
+} 
+
+  
+
+public class Program 
+
+{ 
+
+    public static void Main(string[] args) 
+
+    { 
+
+        // Choose the desired heater implementation 
+
+        IWaterHeater heater = new ElectricHeater(); // Or new GasHeater(); 
+
+  
+
+        // Create the CoffeeMaker with the chosen dependency 
+
+        CoffeeMaker coffeeMaker = new CoffeeMaker(heater); 
+
+  
+
+        coffeeMaker.MakeCoffee(); // Run the coffee maker, using the injected heater 
+
+    } 
+
+} 
+
+ 
+
+ 
+
+Delegate is an object which refers to a method or you can say it is a reference type variable that can hold a reference to the methods. 
+
+It provides a way which tells which method is to be called when an event is triggered. 
+
+Provides a good way to encapsulate the methods. 
+
+Delegates are in the library class in System namespace. 
+
+These are the type-safe pointers of any method. 
+
+Delegates are mainly used in implementing the call-back methods and events. 
+
+ 
+
+Event: The Event is an encapsulated delegate. C# and .NET both support the events with the delegates. When the state of the application changes, events and delegates give the notification to the client application. Delegates and Events both are tightly coupled for dispatching the events, and event handling require the implementation of the delegates. The sending event class is known as the publisher, and the receiver class or handling the Event is known as a subscriber. 
+
+ASP.NET Core Middleware 
+
+In ASP.NET Core, middleware plays a crucial role in handling incoming requests and outgoing responses. It's essentially a chain of software components that intercept and potentially modify HTTP requests and responses before they reach your application or get sent back to the client. These components are arranged in a pipeline, forming the backbone of how your application processes requests. 
+
+What is Middleware? 
+
+Each component is a class implementing the IMiddleware interface. 
+
+They are invoked sequentially based on their order in the pipeline. 
+
+They have access to both the HttpContext object (containing request and response details) and the next middleware in the chain. 
+
+ 
+
+ 
+
+Use () adds new middleware components to intercept and modify requests throughout the pipeline. 
+
+run() is at the end of the pipeline, defining the main application logic. 
+
+map() creates branches in the pipeline based on URL patterns, offering different request handling based on the requested path. 
+
+ 
+
+Request Delegate: 
+
+The final component in the pipeline, representing your actual application logic. 
+
+Responsible for processing the request and generating the response. 
+
+ 
+
+ 
+
+Middleware Components: 
+
+Authentication and authorization 
+
+Logging and error handling 
+
+Static file serving 
+
+Caching 
+
+Content compression 
+
+ 
+
+Key points about Middleware: 
+
+Order matters: Components are executed in the order they are added to the pipeline. 
+
+Flexibility: You can add custom middleware tailored to your specific needs. 
+
+Control flow: Use next method to continue processing or short-circuit the pipeline. 
+
+Built-in vs. custom: ASP.NET Core provides several built-in middleware components, but you can also create your own. 
+
+ 
+
+Entity Framework (EF) is an object-relational mapping (ORM) framework that enables developers to work with relational data using domain-specific objects. It eliminates the need for most of the data-access code that developers usually need to write. 
+
+Entity Framework Core (EF Core) is a lightweight, extensible, open-source version of Entity Framework. 
+
+Exception handling - Exception handling is a crucial aspect of any web application, including ASP.NET and ASP.NET Core. It ensures your application gracefully handles unexpected errors and provides meaningful feedback to users.  
+
+ASP.NET (Classic): 
+
+Global Application Error Event: The Application_Error event in the Global.asax file catches unhandled exceptions throughout the application. 
+
+Error Pages: You can configure custom error pages for different HTTP status codes (e.g., 404, 500) to display user-friendly error messages. 
+
+Try/Catch Blocks: Use try/catch blocks within code to handle specific exceptions locally. 
+
+ 
+
+ASP.NET Core: 
+
+Built-in Middleware: The UseExceptionHandler middleware automatically handles unhandled exceptions and maps them to appropriate HTTP status codes. 
+
+Problem Details Model: Uses the ProblemDetails model to provide standardized error responses (including status code, title, detail, etc.). 
+
+Custom Exception Handlers: Implement custom middleware or exception handlers to intercept specific exceptions and provide tailored responses. 
+
+OOPS Concepts: 
+
+Object-Oriented Programming (OOP) is a programming paradigm that organizes code around objects. These objects encapsulate data (attributes) and the actions that can be performed on that data (methods), acting as self-contained units of functionality. It's like creating blueprints for real-world entities and how they interact with each other. 
+
+Objects: 
+
+The fundamental building blocks of OOP. 
+
+Combine data (attributes) and behavior (methods) into a single unit. 
+
+Represent real-world entities or concepts in your program (e.g., a customer, a product, a car). 
+
+ 
+
+Classes: 
+
+Act as blueprints or templates for creating objects. 
+
+Define the attributes and methods that objects of that class will have. 
+
+Allow you to create multiple objects with the same properties and behaviors. 
+
+ 
+
+Inheritance: 
+
+Enables new classes (subclasses) to inherit attributes and methods from existing classes (superclasses). 
+
+Promotes code reuse and extensibility, reducing the need to rewrite code. 
+
+Creates hierarchical relationships between classes. 
+
+Polymorphism: 
+
+Allows objects of different classes to respond to the same method call in different ways based on their implementation. 
+
+Enables flexible and dynamic behavior in your program. 
+
+Examples: operator overloading, virtual functions. 
+
+ 
+
+ 
+
+1. Compile-Time Polymorphism (Method Overloading): 
+
+Occurs when multiple methods share the same name but have different parameter lists (number, type, or order of parameters). 
+
+The compiler determines the correct method to call based on the arguments provided at compile time. 
+
+2. Runtime Polymorphism (Method Overriding): 
+
+Occurs when subclasses inherit methods from their base class and provide their own implementations with the same name and parameter list. 
+
+The actual method called depends on the object's runtime type, not its declared type. 
+
+ 
+
+Abstraction: 
+
+Focuses on essential aspects of an object, hiding implementation details. 
+
+Presents a simplified interface for other parts of your code to interact with. 
+
+Improves code readability and reduces dependencies. 
+
+Common examples: interfaces, abstract classes. 
+
+Encapsulation: 
+
+Bundles data and methods together within an object, controlling access and ensuring data integrity. 
+
+Defines public and private members within the object. 
+
+Prevents unauthorized modification of data. 
+
+Benefits of Using OOP: 
+
+Reusability: Classes and objects can be reused in different parts of your application, saving time and effort. 
+
+Modularization: Objects encapsulate functionality, making code easier to understand and maintain. 
+
+Maintainability: Changes to a class impact only instances of that class, minimizing potential ripple effects. 
+
+Abstraction: Hides complexity, improving code readability and reducing dependencies. 
+
+Data Security: Encapsulation restricts unauthorized access to data within objects. 
