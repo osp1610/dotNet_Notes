@@ -1,0 +1,14 @@
+difference between interface nd abstract class
+1-abstract class contains both declaration and defination of method
+ -interface only contains declaration of methods.
+  *in c#8.0 we define default implementation for a method in the interface itself
+
+2-Abstract class uses Abstract keyword
+ -Interface uses interface keyword
+
+3-abstract class can contain methods fields, constructor and other class members
+ - interface can contain methods only nothing else
+
+4-abstract class does not support multiple inheritance
+ -interface supports multiple inheritance
+
