@@ -1,0 +1,77 @@
+C# 1.0
+Classes
+Structs
+Interface
+Events
+Properties
+Delegates
+
+C# 2.0
+Partial class
+Generics
+Static Class
+Nullable types
+Co-variant
+Contra-Variant
+
+C# 3.0
+Lambada Experssion
+Extension Methods
+Expression Trees
+Anonymous Methods	
+LINQ
+Implicit type(VAR)
+
+C# 4.0
+Late Binding
+Named Argument
+Option Parameter
+
+C# 5.0
+Async Programming
+
+C# 6.0
+Read Only Properties
+String Interpolation
+Null Condition Operators
+Await in Catch & Finally
+
+
+C# 7
+Out Variables and Discards
+Pattern Matching
+Local Functions/Method
+Digit Separator and Hex Literal
+Tuple and Deconstruction
+Ref Local and Ref Return
+Expression Bodied Members
+Throw Expressions
+
+C# 8
+ReadOnly Struct
+Default Interface Methods
+Using Declarations
+Null Coalescing Assignment Operator
+Static Local Function
+Property Matching Enhancements
+Indices and Ranges
+StackAlloc
+
+C# 9
+Records
+Init Only Setters
+Pattern Matching Patterns
+Top-Level Statements
+Target Type new
+Static Anonymous Function
+Lambda discard parameters
+
+C# 10
+Record Structs
+Global Using Directives
+File Scoped Namespace
+Constant Interpolated String
+Lambda Improvements
+Assignment and Declaration in the same Deconstruction
+Extended Property Patterns
+Improvements of Structure Types
