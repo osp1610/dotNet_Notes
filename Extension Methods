@@ -1,0 +1,134 @@
+Extention Methods:
+New feature from c# 3.0
+
+Inheritance is a mechanism using which 
+we can extend functionalities of class
+
+But one thing is there if it is a sealed
+class then we cannot inherit it.
+
+If the we want to do changes in struct but
+struct cannot inherit
+
+To overcome all these problems microsoft
+introduce Extention methods
+
+Extention Methods:
+It is mechanism of adding new methods into
+an existing class or struct also without 
+modifying the source code of original type
+and in this process we dont require any
+permission from original type and the 
+original type doesnt require any recompilation.
+
+
+In extention methods we are going to 
+create one static class first
+
+Every method in a static class must be a static
+method.
+
+Example
+
+namespace A
+{
+	class B
+	{
+		public void Method1()
+		{
+			Console.WriteLine("M1");
+		}
+
+				public void Method2()
+		{
+			Console.WriteLine("M1");
+		}
+		
+		public static void Main()
+		{
+			B b = new B();
+			b.Method1();
+			b.Method2()
+		}
+
+		
+	}
+}
+
+
+
+Now I am creating extention class
+
+namespace A
+{
+	static class B
+	{
+		//Byusing this keyword we can pass 
+		this method to class B
+		public void Method3(this B b)
+		{
+			Console.WriteLine("M3");
+		}
+		
+	}
+}
+
+
+
+
+{
+	class B
+	{
+	public static void Main()
+	{
+		B b = new B();
+		b.Method1();
+		b.Method2();
+		b.Method3();//Extention method
+	}	
+	}
+}
+
+
+In extention method we can bind Extention
+method using this keyword which is pass
+as a parameter in extention class
+
+Extention methods are defined as static
+but when they are bound with any class or
+structure they change into non-static
+
+If an extention mwthod is defined with 
+same name and signature of an existing 
+method then it only call existing method
+give prefrence to original method.
+
+If i want to pass parameter in extention
+method i can pass it
+
+public void Method3(this B b,int i)//In this way we 
+can pass parameter
+		{
+			Console.WriteLine("M3");
+		}
+
+The first parameter of the extention method
+is a name of class with 'this' keyword as prefix
+it is always in the first place 
+After that we can pass parameters.
+
+
+Note:If extention method calling n parameter
+then at the time of decleartion we need to
+pass n-1 parameter becuase this keyword is 
+ignored.
+
+Extention method should have only one 
+binding parameter
+
+We can do it in a sealed classes also.
+
+We can add extention methods in sytem defined
+classes also.
+For eg.Adding Factorial funaction in Int32 struct
+
