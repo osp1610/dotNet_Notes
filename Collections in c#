@@ -1,0 +1,33 @@
+Collections in c#
+Array--Array is used to storing a data of fixed size and there are some drawbacks using array so collection useful instead of that.
+Array drawbacks-
+-increasing size of array
+-inserting array element into the middle
+-deleting or removing values in middle of the array
+so we can use collections to overcome these.
+
+Non-Generic collections:
+System.Collections:Stack,Queue,ArrayList,LinkedList,SortedList,Hashtable
+its not type safe, it accept object value so we can store different types values.
+
+Array vs ArrayList:
+Fixed Length				                Variable length
+Not possible to insert items in middle      we can insert items in the middle
+Not possible to delete items in middle     we can delete items from the middle 
+
+ArrayList- 
+	methods:Capacity- Check capacity of list. Capacity start with size of datatype and it becomes double when you add data. ArrayList is Auto sizing
+Insert- to add element in middle at any index.
+Remove- remove with value in ArrayList
+RemoveAt- remove by index of element.
+
+Hashtable-
+it stores value in hash value so values are not in stored manner so how it storing in hashtable with hash value it retriving back on that basis.
+
+ 
+Generic Collection:
+It is type safe collection with auto resizing functionality
+
+System.Collections.Generic:List,
+
+
