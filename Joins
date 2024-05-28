@@ -1,0 +1,39 @@
+Joins-
+-To retrive data from more than one instance of table we need to use joins.
+-Join always fetch matyching records.
+-In sql server you perform joins using theta model(where clause) OR ANSI-SQL(Using jon keyword)Model.
+-To join "N" tables we need to use minimum (n-1) table join condition.
+-Equi or inner or join--This will fetch only matching record from the table.
+
+--------------------------
+*student name city marks and garde of the student
+select * Grade,Name,Marks,city
+from studentgrade sg, student s
+Where s.marks between sg.Lowrange and sg.Highrange
+or
+where sg.Marks >=sg.Lowrange and s.Marks<=sg.Highrange
+
+-Non-Equi Join-using other than"=" operator to retrive data
+ fom more than one table. this can be achived only using theta model
+ 
+
+-----------------------------------------
+Self Join-same table have primary and forigen key. 
+*Query to display Name Age BirthCity ParentName CurrentRole
+
+select * h.Name, h.Age,h.BirthCity, p.Name,h.CurrentRole
+from human h join human p
+on h.parentId=p.Id
+
+------------------
+cross join-if no relation still you want to retrive the data you will retrive bt you will get all the data.
+           it will do all combination from both the table.
+
+------------------------
+outer join- Display both matching and non matching records.
+left outer ,
+right outer,
+full outer join
+
+*query to display travel name and passangers travelling
+select bus.travels,passenger.passangername from bus join passanger on bus.busid=passenger.busid;
