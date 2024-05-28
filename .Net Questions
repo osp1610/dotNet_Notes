@@ -1,0 +1,83 @@
+1.  .NET Framework vs .NET Core vs .NET 5.0 ?
+	-.Net Framework only supports windows platform, .Net Framework is slow in performance as compare to .Net core,  it doesnot support microservices, It is more IDE based
+	-.Net Core supports cross platform,  .Net core is faster in performance, It supports microservices to build, it fully supports CLI (command line interface)
+	-.Net Standard is unified platform which unifies all .Net Run time like .Net Framework, .Net Core and so on.
+
+
+2. C# Code Compilation Process?
+	-First it will compile c# program in c# compiler it checks code contains any error or not and works accordingly.
+	-Then it will convert c# compiled code into IL or CIL code, this code can run on any OS because c# is platform independent language.
+	-Then next it have to convert this IL is machine understanble code so machine will understand give output accordingly.
+	-CLR (Common Lang Runtime) which converts IL into Machine understandable code. This process works under JIT (just in-time Compiler).
+	-After compiling by JIT it will it packaged into Assemblies. Assemblies are nothing but classes and namesapces. File extension is .exe(executable) or .dll(dynamic link library) depends on application that developer developed.
+	--CLR Contains 4 Main Components:
+		-CLS (Common Lang Specification):It converts different language syntactical rules and regulations into CLR understandeble format.
+		-CTS (Common Type System): It is responsible for understanding each langauage data type and conerting them into one common CLR understandble format.
+		-Garbage Collector: it is used to provide Automatic Memory Management Feature.
+		-JIT:It is responsible for converting IL into Machine Undertandeble code.
+
+3. What is managed and unmanaged code ?
+	Managed code is code that runs under environment of CLR. C# VB.Net are converted into IL and then from IL to Machine Understandable code so this considerd as managed code
+	Unmanaged code is code that does not run under environment of CLR example C++ code. CLR will not control this code it directly taken care by OS.
+
+
+4. Difference between Stack vs Heap ?
+	-stack and heap are memory types in .net application.
+	-stack stores value types data where heap stores reference type of data.
+	-stack stores primitive data type like int boolean double
+	-in stack variable and value stored at same location
+	-For objects variable name is stored in stack but value is stored in heap
+	-On heap objects are stored
+
+5. What are Value types & Reference types?
+	-Value types are nothing but values that are stored directly inot memory location. This is stored into stack
+	-Reference Types will contain memory address of value beacuse the reference types wont store the variable value directly into memory. These types work with Heap.
+
+6. Explain boxing and unboxing ?
+	- boxing is moving value types to reference types 
+	- unboxing is moving refernece types into value types
+	-int i=10;
+	  object y=i; //boxing
+	  int z=(int)y; //unboxing
+
+7. Explain casting,implicit casting and explicit casting ?
+	-Casting means moving from one datatype to another data type
+	- Implicit casting means moving from lower level data type to higher level for example moving int to double
+	-Explicit Casting is casting moving higher level data type to lower level data type like double to int
+	- but in explicit casting we have mention type while converting and may be we will loss the some data.
+
+
+8. Differentiate between Array and ArrayList ?
+	-Array is fixed length and arraylist is variable length
+	-Array is type safe, Arraylist is not typesafe
+	-Array is better in performance as compared to arraylist
+	-we can not add delete element in middle of the array in easy way, but in Arraylist we can delete it easly 
+
+
+9. What are generic collections ?
+	-Generic collections are collection that fast in perfomance as compared to normal collections and it follows auto resizing facility and it is type safe.
+	-System.Collections.Generic:List,
+	-there are some types of generic collections:List, Dictionary, Hashset, stack and queue.
+
+10. How are threads different from TPL ?
+	-TPL is known as Task Parallel Library it is realted to parallel programming
+	-Task is built on top of the thread. TPL contains high level of abstraction.
+	-TPL simplifies synchronization with methods like Task.Wait(), Task.WaitAll()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
