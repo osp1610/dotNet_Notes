@@ -1,0 +1,78 @@
+--Middleware in ASP.NET Core--
+-so what is meaning of middleware, software that acts as a bridge between an operating system or database and applications, especially on a network.
+-Middleware is key component in asp.net core that allows you to handel requests and responses in very flexible way through application pipeline.
+-So, Middleware is chain of functions which are executed before request and response being processed.
+-middleware build request pipeline.
+-middleware are executed in the same order in which they  are added.
+-When an HTTP request is received by an ASP.NET Core application, it goes through a series of middleware components in a predefined order. This sequence of middleware components is known as the request pipeline.
+- Each middleware component in the pipeline is responsible for processing the request or response and can choose to modify them or pass them to the next middleware component in the pipeline.
+
+--Middleware types--
+-Built in:
+
+-Authentication Middleware:
+UseAuthentication: This middleware component is used to enable authentication in your application. It allows you to integrate authentication providers like JWT, OAuth, or external identity providers.
+
+-Authorization Middleware:
+UseAuthorization: This middleware component is used to enable authorization in your application. It checks whether the authenticated user has the required permissions to access specific resources.
+
+-Routing Middleware:
+UseRouting: This middleware component is used for routing requests to the appropriate controller actions based on the URL. It is essential for handling API endpoints.
+
+-Endpoint Middleware:
+UseEndpoints: This middleware component is used to define the endpoints for your application, including API endpoints, and specify how requests should be routed to controllers and actions.
+
+-CORS (Cross-Origin Resource Sharing) Middleware:
+UseCors: This middleware component allows you to configure Cross-Origin Resource Sharing policies to control which domains can access your API resources.
+
+-Exception Handling Middleware:
+UseExceptionHandler and UseDeveloperExceptionPage: These middleware components are used for handling exceptions and providing error information during development.
+
+-Response Compression Middleware:
+UseResponseCompression: This middleware enables response compression to reduce the size of responses, improving the efficiency of your API.
+
+-Response Caching Middleware:
+UseResponseCaching: This middleware enables response caching to cache the API responses, reducing the load on the server for frequently requested resources.
+
+-Request Localization Middleware:
+UseRequestLocalization: This middleware enables request localization, allowing your API to respond in different languages or cultures based on client preferences.
+
+-Static Files Middleware:
+UseStaticFiles: While this middleware is often used for serving static web content, it can also be useful for serving static files like images or documents in your API.
+
+-Swagger/OpenAPI Middleware:
+If you're using Swagger or OpenAPI for API documentation, there are middleware components available for integrating and serving API documentation
+
+
+
+--Custom Middleware--
+-Custom middleware allows you to insert your own logic into the request/response pipeline.
+1.Create a Class for Your Middleware:
+Create a new class for your custom middleware. This class should have a constructor that accepts a RequestDelegate parameter. The RequestDelegate represents the next middleware component in the pipeline.
+
+2.Implement the Middleware Logic:
+Implement the InvokeAsync method within your middleware class. This method is called for each HTTP request and is where you place your custom logic
+
+3.Register the Middleware in Program.cs:
+In the Configure method of your Program.cs file, use the app.UseMiddleware<TMiddleware>() method to register your custom middleware. Place it in the desired position within the middleware pipeline.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
