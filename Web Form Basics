@@ -1,0 +1,98 @@
+ASP.NET Life Cycle
+				         ASP.NET Life Cycle
+			         __________|__________
+				      |			                |
+    Application Life Cycle    Page Life Cycle
+
+Application Life Cycle-- Application Start => Object Creation => Http Application => Dispose => Application End
+
+Page life Cycle-- there are some phases in page life cycle where it contains initializing, restoring and execution.
+			page request => page start => page initilization => page load => validation => event handling => rendering => unload
+			
+Server Controls-
+Standard Control- text box, button, checkbox
+data control- formview, deatils view, gridview, listview etc
+validation control- requiredFieldValidator, compare validator etc
+navigation controls- menu, treeview etc
+Login Controls- login, loginview, passwordrecovery, create user wizard etc.
+
+each control that we use have three things-
+--Properties- mostly impact on look of the control like bg color, foregroundcolor, we can see from property window 
+--methods- methods is action that has to be performed example Focus() to focus in textview
+--events- an event is time period which tells when an particular action is going to perform.
+
+postback- web page seneding request back to it self is called as postback
+		this.IsPostBack()
+initially it is false for first request for next request or post back request it is true.
+
+PostBack Submission- in postback all the data associated with form and its controls will be submitted to the page on the server
+
+IsPostBack- It used to check that is it first request for or not.
+
+who is capable of submitting page on the server
+-By default button is responsible but for other controls like checkbox textbox radio button need AutoPostBack property true by deafualt that is false.
+
+
+Post back Events and cached events-
+Page events--page has series of event which get fired everytime when page get loaded i.e. either first request to the page for postback request to the page.
+Postback Events--Postback event means these event is only get fired when page is posted back to the server i.e. after second request onwards
+
+cached events- when we define event handlers to the controls which are not capable to submit page to the server, when these events fired based on client action gets stored in cache memory and fires after the page is submitted to the server.
+example- text box have property like textchanged if write something and move to the button that time data will stored in cache and when we click on button who have its default property to submit page to the server will submit it.
+
+
+Cross page post back- cross page post back means a page calling and submitting data to another page.
+example- if we have login page and want to validate data in next form we will accept the value in first web form and using post back url property will pass second web form path and with help of request.Form["element Id"] we will get that form data and validate data.
+
+To transfer the page control from one page to another page we used two mechnism--
+--Server.Transfer("Page_path.aspx") and Response.Redirect("pag_path.aspx")
+
+--diff between Server.Transfer and Response.Redirect
+Server.Transfer :
+-In case of Server.Transfer the transfer from 1 page to another page happens on the server only and it is un-known to the browser.
+-Faster because it happens on the Server.
+-Can transfer only to .aspx pages.
+-Previous page object is available in the memory and can be accessed in the new page.
+- for passing data from first page to second we can access using PreviousPage 
+-example-- string name=((TextBox)PreviousPage.FindControl("txtName")).Text;
+
+Response.Redirect :
+-In Case of Response.Redirect the transfer from 1 page to another page happens from the browser so browser is aware of the page from where the output is coming from.
+-Slower because there is an additional round trip involved.
+-it can transfer either to .aspx or .html pages.
+-previous page object is not avilable because the request made from browser is fresh request.
+-for passing data from first page to second we have pass through to Query string from URL 
+-example-- string name=Request.QueryString["Name"];
+
+****State Management****
+-It is process of maintaining the state of values between multiple requests of the page.
+
+-To main the state of values ASP.Net provides us different options where those values can be maintained either on the client machine or on the server machine.
+-for client machine we will use: Hidden Fields, QueryStrings, ViewState, Control State and Cookies
+-for server machine we will use: Session and Application State
+
+-Hidden Fields- we can use them in aspx file input as hidden and but storing value here is not safe we can see in view source in browser easily we have to encrypt and decrypt explicitly. we can request this data in another page easily.
+
+-QueryString- we can pass data through URL and access it in pages. we can maximum pass 2048 characters only through query string and its not secure to pass sesnitive data
+-StateView - it is key value mechnisam where key is in string format and value is object. example: ViewState["Abc"]="example" and it is hidden field only with base64 encryptiont. so when we see in view source then it shows in encrypted manner.
+-Cookies- Cookies are nothing but used to store small amount of data it have size 4 bytes only.
+
+Session State- Session state is server side state management which also in key value pair example- Session["Key"]=value and it is avilable till session gets end. In configuration file we can enable a session and set time out as per the requirement and there are session modes like InProc, StateServer, SQLServer etc 
+InProc- Means it will store in that application memory space 
+StateServer- Means it will store session data in out of process means in different process so we can shared across multiple web server.
+SQLServer- We can store session data in sql server database. we can use sql connection string in sessionState in configuration file.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
