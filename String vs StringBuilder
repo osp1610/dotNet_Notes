@@ -1,0 +1,58 @@
+String vs StringBuilder
+
+-Strings are immutable
+means Strings are non modifiable
+
+When we concatente string it will create
+a copy of another string
+Menas:
+we have "Hello"
+and we are concatenating it with "world"
+
+It will give me "Hello " + "World" 
+but in memory hello is differnt and 
+hello world together is different
+
+when there are multiple operations required
+to do on strings then we use string builder
+class.
+
+
+String Builder is mutable means we can 
+change stringBuilder
+
+when we decleare stringBulder 16 charachters
+of memory are allocated
+
+Syntax:
+StringBuilder sb = new StringBuilder("Hello")
+ 
+now i want concatenate World to it.
+In string Builder there is a function
+called Append.
+
+sb.Append("world")
+sb.Append("India)
+
+Now we have seen stringBuilder gives 16 
+characters of space for this but we extend
+the limit hence if limit is extended above 16
+then it will now extends till 32 characters 
+automatically.
+
+And it not creating multiple copies for 
+appending new string like string.
+
+String comes under
+System.Strings
+
+StringBuilder comes under
+System.Text.StringBuilder
+
+System.Diagnostics is required to 
+import for stopwatch class to see how 
+much time is taken by stringBuilder
+to complete methods
+
+
+
