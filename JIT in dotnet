@@ -1,0 +1,40 @@
+JIT in dotnet
+
+-JIT compiles code compiled by language specific 
+compiler which is in the form of MSIL or CIL or IL
+then MSIL converts it into native code which is 
+machine dependent code
+
+Types of JIT compiler
+1.Pre JIT- When all source converting into machine
+code at the same time single compilation cycle using 
+pre-jit compiler.
+This compilation process done at deployment time
+and compiler always implemented in the Ngen.exe
+(Native image generator)
+
+2.Normal JIT compiler
+The source code method that required at runtime
+are compiled into machine code the first time 
+they are called by the normal JIT compiler.
+After that they are stored in cache and used whenever
+it calles again
+
+3.Econo JIT Compiler
+The source code required at run time are compiled 
+into machine code by Econo JIT compiler after this 
+methods are not required anymore,they are removed
+This compiler is no more used from dotnet 2.0
+
+Advantages of JIT
+1.uses less memory
+2.Page faults are reduced
+3.Code optimization based on statistical analysis
+
+Disadvantages of JIT
+1.Requires more startup time while executing initially
+2.Cache memory is heavily used by the JIT compiler
+
+These Disadvantages are handled by AOT(Ahead of time)
+compilation.
+ 
