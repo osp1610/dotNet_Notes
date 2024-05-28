@@ -1,0 +1,75 @@
+CLR Basics:
+->Basic and virtual machine component of Dot
+Net Framework.
+->It is a dotnet runtime environment which
+Provides various services and makes 
+development easier.
+->Internally clr implements VES(Virtual Execution
+System) which defines microsoft implementation
+of CLI(Common Language Infrastructure)
+->The code that runs under CLI is Called 
+managed code.
+->CLR contains rich library set
+
+CLR Versions	.NET Framework Versions
+1.0				1.0
+1.1				1.1
+2.0				2.0
+2.0				3.0
+2.0				3.5
+4				4
+4				4.5(also 4.5.1 & 4.5.2)
+4				4.6(also 4.6.1 & 4.6.2)
+4				4.7(also 4.7.1 & 4.7.2)
+
+
+Role of CLR
+->Code executes with its own compiler for eg for c#
+code there is csc Compiler.Language specific compiler
+converts to MSIL or CIL or IL with metadata(metadata
+includes actual implementation of each function)
+->MSIL is a Machine Independent code
+->Now CLR comes into picture .CLR provides
+services and runtime environment to MSIL
+code
+->Internally CLR includes JIT(Just in time 
+)compiler
+->JIT converts MSIL to Machine code which 
+further executed by CPU.
+->CLR also Uses dotnet Framework Libraries
+->Metadata provides information about the programming language
+, environment, version, and class libraries to the 
+CLR by which CLR handles the MSIL code. 
+As CLR is common so it allows an instance 
+of a class that written in a different 
+language to call a method of the 
+class which written in another language.
+
+
+Main Components of CLR
+CLR uses for more than 60 dot net programming
+language
+
+1.CLS(Common language Specification)->It is responsible for converting the different .NET 
+programming language syntactical rules and 
+regulations into CLR understandable format.
+Managed code->MSIL managed by CLR
+Unmanaged code->Before dot net development 
+there is no clr hence code managed by os.
+2.CTS(Common Type System)->Understanding all datatypes in .net
+framework
+Two type of CTS-1.Value type-Stores direct value clr allots memory at compile time.
+		    2.Reference type-Stores reference clr allots memory at runtime.
+3.Garbage Collector-Is is a Automatic memory management system
+
+4.JIT-Convert MSIL to machine code using
+CLR environment.
+
+Benefits of CLR
+->Improves performance
+->Enhance portability
+->support automatic memory management
+->Provides architecture independence
+->It allows multithreded applications.In this 
+dont need to think about memory management
+and security
