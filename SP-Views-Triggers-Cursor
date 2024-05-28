@@ -1,0 +1,73 @@
+***Views***
+In SQL, a view is a virtual table that is based on the result of a SELECT query. Unlike physical tables, views do not store data themselves; instead, they provide a way to access and manipulate data from one or more underlying tables or other views. Views are often used for simplifying complex queries, providing an additional layer of security, and abstracting the underlying data structure.
+
+*Scenario: You want to provide an easy way to display product details to customers. However, the product data is stored in a complex manner across multiple tables, including product information, categories, and pricing.
+
+Solution: Create a view called "ProductDetails" that combines data from the relevant tables and simplifies the query for product details.
+
+
+
+***Stored Procedure***
+A stored procedure in SQL is a precompiled and reusable block of SQL statements and procedural logic that can be executed on demand. It's typically used to encapsulate a series of SQL statements into a single unit of work.
+
+CREATE PROCEDURE procedure_name
+    @parameter1 data_type,
+    @parameter2 data_type
+AS
+BEGIN
+    -- SQL statements and procedural logic here
+END;
+
+
+
+***Indexes***
+Indexes in SQL are database objects that are used to improve the performance of SELECT, UPDATE, DELETE, and MERGE statements on database tables. Indexes provide a way to quickly look up rows based on the values in one or more columns, which reduces the need for full table scans and speeds up data retrieval.
+
+CREATE INDEX index_name ON table_name (column1, column2, ...);
+
+
+**Primary Key and Unique Constraints:
+
+A primary key constraint enforces uniqueness in a table and automatically creates a unique index on the primary key column(s).
+Similarly, a unique constraint creates a unique index.
+
+**Clustered vs. Non-Clustered Indexes:
+
+A clustered index determines the physical order of data rows in a table. A table can have only one clustered index, and it's often created on the primary key column(s).
+
+Non-clustered indexes are additional indexes that provide a separate lookup structure for the data. A table can have multiple non-clustered indexes.
+
+
+
+
+***Trigger***
+In SQL, a trigger is a database object that automatically executes a set of SQL statements when a specified event occurs. Triggers are typically used to enforce data integrity rules, audit changes to data, or automate complex database actions. There are two main types of triggers in SQL:
+
+**Before Triggers (or Instead Of Triggers):
+
+These triggers fire before the triggering event (e.g., INSERT, UPDATE, DELETE) occurs.
+They can be used to modify the data before it is written to the database or to perform checks and validations.
+If a before trigger returns an error or raises an exception, the triggering event is canceled.
+Common use cases include data validation and enforcing business rules.
+
+**After Triggers:
+
+These triggers fire after the triggering event has occurred and data changes have been committed to the database.
+They are often used for actions that should occur after data changes, such as logging changes, sending notifications, or updating related records.
+After triggers cannot modify the data that triggered them.
+
+
+***Cursor***
+In SQL, a cursor is a database object used to retrieve and manipulate data from a result set or a query. Cursors are often used in procedural programming within stored procedures, functions, and triggers to iterate through rows of data one at a time. Cursors provide more fine-grained control over data retrieval and manipulation compared to regular SQL queries. There are two main types of cursors in SQL:
+
+**Implicit Cursors:
+
+Implicit cursors are automatically created by the database management system (DBMS) to handle query results in SQL statements.
+They are commonly used in SQL statements like SELECT INTO or UPDATE to retrieve or update a single row of data.
+Implicit cursors are not explicitly declared or managed by the programmer and are often transparent to the user.
+
+**Explicit Cursors:
+
+Explicit cursors are explicitly declared and managed by the programmer within the context of a stored procedure, function, or trigger.
+They provide more control over data retrieval and manipulation and are typically used when working with result sets containing multiple rows.
+Explicit cursors have a well-defined structure, including declaration, opening, fetching, and closing phases.
