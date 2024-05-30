@@ -38,7 +38,7 @@
 	- unboxing is moving refernece types into value types
 	-int i=10;
 	  object y=i; //boxing
-	  int z=(int)y; //unboxing
+	  object z=(int)y; //unboxing
 
 7. Explain casting,implicit casting and explicit casting ?
 	-Casting means moving from one datatype to another data type
