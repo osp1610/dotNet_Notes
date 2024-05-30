@@ -422,39 +422,25 @@ Occurs when multiple methods share the same name but have different parameter li
 The compiler determines the correct method to call based on the arguments provided at compile time. 
 
 2. Runtime Polymorphism (Method Overriding): 
-
 Occurs when subclasses inherit methods from their base class and provide their own implementations with the same name and parameter list. 
-
 The actual method called depends on the object's runtime type, not its declared type. 
 
  
-
 Abstraction: 
-
 Focuses on essential aspects of an object, hiding implementation details. 
-
 Presents a simplified interface for other parts of your code to interact with. 
-
 Improves code readability and reduces dependencies. 
-
 Common examples: interfaces, abstract classes. 
-
 Encapsulation: 
-
 Bundles data and methods together within an object, controlling access and ensuring data integrity. 
-
 Defines public and private members within the object. 
-
 Prevents unauthorized modification of data. 
-
 Benefits of Using OOP: 
-
 Reusability: Classes and objects can be reused in different parts of your application, saving time and effort. 
-
 Modularization: Objects encapsulate functionality, making code easier to understand and maintain. 
-
-Maintainability: Changes to a class impact only instances of that class, minimizing potential ripple effects. 
-
+Maintainability: Changes to a class impact only instances of that class, minimizing potential ripple effects.    
 Abstraction: Hides complexity, improving code readability and reducing dependencies. 
-
 Data Security: Encapsulation restricts unauthorized access to data within objects. 
+
+
+--Filters - work on controller level
