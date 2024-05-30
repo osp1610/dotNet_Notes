@@ -64,6 +64,13 @@
 	-Task is built on top of the thread. TPL contains high level of abstraction.
 	-TPL simplifies synchronization with methods like Task.Wait(), Task.WaitAll()
 
+11. SOLID Principals
+	- S single responsibility -- 
+	- O open close -- easy to extend hard to modify, use intefaces and abtract classes
+	- L Liskove subs -- subclass shouldnt affect behaviour of base class
+	- I interface segrigation --  create smaller interfaces 
+	- D dependancy inversion --using interfaces for dependancy injection
+
 
 
 
